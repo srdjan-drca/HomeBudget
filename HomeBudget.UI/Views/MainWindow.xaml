@@ -1,0 +1,136 @@
+﻿<Controls:MetroWindow x:Class="HomeBudget.Views.MainWindow"
+			xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+			xmlns:Views="clr-namespace:HomeBudget.Views"
+			Icon="/Resources/Images/HomeBudget.ico"
+			Title="Home budget"
+			TitleCharacterCasing="Normal"
+			ResizeMode="NoResize"
+			Height="500"
+			Width="600">
+
+   <Grid>
+      <Grid.RowDefinitions>
+         <RowDefinition Height="*" />
+         <RowDefinition Height="25" />
+      </Grid.RowDefinitions>
+
+      <Grid>
+         <Grid.Resources>
+            <DataTemplate x:Key="MenuItemTemplate" DataType="{x:Type Controls:HamburgerMenuGlyphItem}">
+               <Grid Height="48">
+                  <Grid.ColumnDefinitions>
+                     <ColumnDefinition Width="48" />
+                     <ColumnDefinition />
+                  </Grid.ColumnDefinitions>
+
+                  <TextBlock
+							Grid.Column="0"
+							FontSize="20"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							FontFamily="{StaticResource Segoe-MDL2}"
+							Foreground="White"
+							Text="{Binding Path=Glyph}" />
+                  <TextBlock
+							Grid.Column="1"
+							VerticalAlignment="Center"
+							FontSize="16"
+							Foreground="White"
+							Text="{Binding Path=Label}" />
+               </Grid>
+            </DataTemplate>
+
+            <DataTemplate x:Key="OptionsMenuItemTemplate" DataType="{x:Type Controls:HamburgerMenuGlyphItem}">
+               <Grid Height="48">
+                  <Grid.ColumnDefinitions>
+                     <ColumnDefinition Width="48" />
+                     <ColumnDefinition />
+                  </Grid.ColumnDefinitions>
+                  <TextBlock
+							Grid.Column="0"
+							FontSize="20"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							FontFamily="{StaticResource Segoe-MDL2}"
+							Foreground="White"
+							Text="{Binding Path=Glyph}" />
+                  <TextBlock
+							Grid.Column="1"
+							VerticalAlignment="Center"
+							FontSize="16"
+							Foreground="White"
+							Text="{Binding Path=Label}" />
+               </Grid>
+            </DataTemplate>
+         </Grid.Resources>
+
+         <Controls:HamburgerMenu
+				x:Name="HamburgerMenuControl"
+				Foreground="White"
+				PaneBackground="DimGray"
+				IsPaneOpen="False"
+				ItemTemplate="{StaticResource MenuItemTemplate}"
+				OptionsItemTemplate="{StaticResource OptionsMenuItemTemplate}"
+				ItemClick="HamburgerMenuControl_OnItemClick"
+				OptionsItemClick="HamburgerMenuControl_OnItemClick"
+				DisplayMode="CompactInline">
+
+            <!--  Items  -->
+            <Controls:HamburgerMenu.ItemsSource>
+               <Controls:HamburgerMenuItemCollection>
+                  <Controls:HamburgerMenuGlyphItem Glyph="&#xE948;" Label="New costs">
+                     <Controls:HamburgerMenuGlyphItem.Tag>
+                        <Views:NewCostsView />
+                     </Controls:HamburgerMenuGlyphItem.Tag>
+                  </Controls:HamburgerMenuGlyphItem>
+
+                  <Controls:HamburgerMenuGlyphItem Glyph="&#xE1D0;" Label="Costs overview">
+                     <Controls:HamburgerMenuGlyphItem.Tag>
+                        <Views:AllCostsView />
+                     </Controls:HamburgerMenuGlyphItem.Tag>
+                  </Controls:HamburgerMenuGlyphItem>
+
+                  <Controls:HamburgerMenuGlyphItem Glyph="&#xE115;" Label="Settings">
+                     <Controls:HamburgerMenuGlyphItem.Tag>
+                        <Views:SettingsView />
+                     </Controls:HamburgerMenuGlyphItem.Tag>
+                  </Controls:HamburgerMenuGlyphItem>
+               </Controls:HamburgerMenuItemCollection>
+            </Controls:HamburgerMenu.ItemsSource>
+
+            <!--  Options  -->
+            <Controls:HamburgerMenu.OptionsItemsSource>
+               <Controls:HamburgerMenuItemCollection>
+                  <Controls:HamburgerMenuGlyphItem Glyph="&#xE168;" Label="About">
+                     <Controls:HamburgerMenuGlyphItem.Tag>
+                        <Views:AboutView />
+                     </Controls:HamburgerMenuGlyphItem.Tag>
+                  </Controls:HamburgerMenuGlyphItem>
+               </Controls:HamburgerMenuItemCollection>
+            </Controls:HamburgerMenu.OptionsItemsSource>
+
+            <!--  Content  -->
+            <Controls:HamburgerMenu.ContentTemplate>
+               <DataTemplate DataType="{x:Type Controls:HamburgerMenuItem}">
+                  <Grid x:Name="TheContentGrid">
+                     <ContentControl
+								x:Name="TheContent"
+								Foreground="{DynamicResource BlackBrush}"
+								Content="{Binding Path=Tag}"
+								Grid.Row="0"
+								Focusable="False" />
+                  </Grid>
+               </DataTemplate>
+            </Controls:HamburgerMenu.ContentTemplate>
+         </Controls:HamburgerMenu>
+      </Grid>
+
+      <StatusBar Grid.Row="1">
+         <StatusBarItem>Status</StatusBarItem>
+         <Separator Style="{StaticResource MetroStatusBarSeparator}" />
+         <StatusBarItem></StatusBarItem>
+      </StatusBar>
+   </Grid>
+</Controls:MetroWindow>

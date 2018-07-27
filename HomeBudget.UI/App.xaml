@@ -1,0 +1,36 @@
+﻿<Application x:Class="HomeBudget.App"
+					xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:ViewModels="clr-namespace:HomeBudget.ViewModels"
+					xmlns:Converters="clr-namespace:HomeBudget.Converters"
+					StartupUri="/Views/MainWindow.xaml">
+   <Application.Resources>
+      <ResourceDictionary>
+         <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.Statusbar.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.Buttons.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+            <ResourceDictionary Source="/Styles/AfmDataGridStyles.xaml" />
+            <ResourceDictionary Source="/Styles/AfmButtonStyles.xaml" />
+            <ResourceDictionary Source="/Styles/AfmTextBoxStyles.xaml" />
+         </ResourceDictionary.MergedDictionaries>
+
+         <!--View models-->
+         <ViewModels:AllCostsViewModel x:Key="AllCostsViewModel" />
+         <ViewModels:NewCostsViewModel x:Key="NewCostsViewModel" />
+         <ViewModels:SettingsViewModel x:Key="SettingsViewModel" />
+         <ViewModels:ViewModelLocator x:Key="ViewModelLocator" />
+
+         <!--Converters-->
+         <Converters:IsEnabledConverter x:Key="IsEnabledConverter" />
+         <Converters:ObjectCloneConverter x:Key="ObjectCloneConverter" />
+
+         <!--Fonts-->
+         <FontFamily x:Key="Segoe-MDL2">pack://application:,,,/Resources/#Segoe-MDL2-Assets-MetroUI</FontFamily>
+      </ResourceDictionary>
+   </Application.Resources>
+</Application>

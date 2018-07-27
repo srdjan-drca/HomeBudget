@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{51CEE2D2-9606-48FD-8D8A-0A78172FC46C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HomeBudget.DataAccess</RootNamespace>
+    <AssemblyName>HomeBudget.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\IDatabaseConfiguration.cs" />
+    <Compile Include="Enums\Enums.cs" />
+    <Compile Include="Models\BaseDbModel.cs" />
+    <Compile Include="Models\CriteriaDbModel.cs" />
+    <Compile Include="Models\CriteriaValueDbModel.cs" />
+    <Compile Include="Models\LabelDbModel.cs" />
+    <Compile Include="Models\LabelTranslationDbModel.cs" />
+    <Compile Include="Repositories\Implementation\CostRepository.cs" />
+    <Compile Include="Repositories\Implementation\CriteriaRepository.cs" />
+    <Compile Include="Repositories\Implementation\CriteriaValueRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICostRepository.cs" />
+    <Compile Include="Core\CustomDataRow.cs" />
+    <Compile Include="Core\IDatabase.cs" />
+    <Compile Include="Core\ISqlServerDatabase.cs" />
+    <Compile Include="Core\SqlServerDatabase.cs" />
+    <Compile Include="Models\CostDbModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Interfaces\ICriteriaRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICriteriaValueRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ILabelRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ILabelTranslationRepository.cs" />
+    <Compile Include="Repositories\Implementation\Repository.cs" />
+    <Compile Include="Repositories\Interfaces\IRepository.cs" />
+    <Compile Include="Repositories\Implementation\LabelRepository.cs" />
+    <Compile Include="Repositories\Implementation\LabelTranslationRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HomeBudget.Tools\HomeBudget.Tools.csproj">
+      <Project>{28679381-B92B-4F80-9BD7-CBB25D7926EE}</Project>
+      <Name>HomeBudget.Tools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
