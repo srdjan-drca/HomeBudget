@@ -37,7 +37,7 @@
 
       <!--Month-->
       <TextBlock Text="Select month:" VerticalAlignment="Center" FontWeight="Bold" Grid.Row="2" Grid.Column="0" />
-      <ComboBox x:Name="Month" ItemsSource="{Binding Path=MonthsDropDown}" DisplayMemberPath="Value" SelectedValuePath="Key" Grid.Row="2" Grid.Column="1" BorderBrush="LightSkyBlue" />
+      <ComboBox x:Name="Month" ItemsSource="{Binding Path=MonthsDropDown, Mode=TwoWay}" DisplayMemberPath="Value" SelectedValuePath="Key" Grid.Row="2" Grid.Column="1" BorderBrush="LightSkyBlue" />
 
       <!--Report-->
       <Button

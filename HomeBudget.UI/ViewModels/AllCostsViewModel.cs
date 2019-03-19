@@ -18,7 +18,16 @@ namespace HomeBudget.ViewModels {
 
       public int Year { get; set; }
 
-      public Dictionary<int, string> MonthsDropDown { get; set; }
+      private Dictionary<int, string> _monthsDropDown;
+
+      public Dictionary<int, string> MonthsDropDown {
+         get {
+            return _monthsDropDown;
+         }
+         set {
+            var test = value;
+         }
+      }
 
       public List<CostModel> Costs {
          get {
@@ -41,7 +50,7 @@ namespace HomeBudget.ViewModels {
          _labelTranslationRepository = labelTranslationRepository;
 
          Year = 2018;
-         MonthsDropDown = CreateMonthsDropDown();
+         _monthsDropDown = CreateMonthsDropDown();
       }
 
       private string ToCostTypeString(int criteriaValue) {

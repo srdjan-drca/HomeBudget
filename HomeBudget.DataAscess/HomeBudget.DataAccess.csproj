@@ -67,7 +67,7 @@
     <Compile Include="Repositories\Interfaces\ICriteriaValueRepository.cs" />
     <Compile Include="Repositories\Interfaces\ILabelRepository.cs" />
     <Compile Include="Repositories\Interfaces\ILabelTranslationRepository.cs" />
-    <Compile Include="Repositories\Implementation\Repository.cs" />
+    <None Include="Repositories\Implementation\Repository.cs" />
     <Compile Include="Repositories\Interfaces\IRepository.cs" />
     <Compile Include="Repositories\Implementation\LabelRepository.cs" />
     <Compile Include="Repositories\Implementation\LabelTranslationRepository.cs" />

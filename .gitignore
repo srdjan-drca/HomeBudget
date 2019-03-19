@@ -3,6 +3,7 @@
 
 # visual studio
 *.suo
+*.user
 bin/
 obj/
 packages/
